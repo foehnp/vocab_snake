@@ -1,18 +1,8 @@
-#include <SFML/Graphics.hpp>
-#include <time.h>
-#include <vector>
-#include <string>
-#include <map>
-#include <iostream>
-#include <chrono>
-#include <thread>
-#include <algorithm>
-#include <random>
-// #include "funcs.h"
+#include "funcs.h"
 #include "game.h"
 #include "welcome.h"
 #include "ded.h"
-#include "parse.h"
+#include "parser.h"
 
 
 // Function to shuffle 2 vectors using the same random permutation
@@ -21,16 +11,15 @@ void shuffle2(std::vector<std::string>& v1, std::vector<std::string>& v2){
   for (int i=0; i<v1.size(); i++){
     indices.push_back(i);
   }
-  auto rng = std::default_random_engine {};
-  std::shuffle(std::begin(indices), std::end(indices), rng);
+  std::shuffle(std::begin(indices), std::end(indices), std::random_device());
   std::vector<std::string> w1{};
   std::vector<std::string> w2{};
   for (auto i : indices){
     w1.push_back(v1[i]);
     w2.push_back(v2[i]);
   }
-  v1=w1;
-  v2=w2;
+  v1 = w1;
+  v2 = w2;
 }
 
 
@@ -97,14 +86,14 @@ while (window.isOpen()){
     }
   }
   std::string path;
-  welcome(set, path, window);
+  menu(set, path, window);
   std::vector<std::string> words{};
   std::vector<std::string> transs{};
   parse(path, words, transs);
   shuffle2(words, transs);
   int score = play(set, words, transs, window);
   std::string choice;
-  choice = ded(set, score, window);
+  choice = dead(set, score, window);
   if (choice=="quit"){
     break;
   }

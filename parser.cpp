@@ -1,5 +1,4 @@
-#include <string>
-#include <fstream>
+#include "parser.h"
 
 void parse(std::string path, std::vector<std::string>& words, std::vector<std::string>& transs){
   std::ifstream file;
