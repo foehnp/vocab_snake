@@ -1,7 +1,0 @@
-g++ -c ded.cpp funcs.cpp game.cpp gameclass.cpp main.cpp parser.cpp welcome.cpp widgets.cpp
-
-
-
-g++ ded.o funcs.o game.o gameclass.o main.o parser.o welcome.o widgets.o -o prog -lsfml-graphics -lsfml-window -lsfml-system
-
-g++ ded.h funcs.h game.h gameclass.h main.cpp parser.h welcome.h widgets.h -o prog -lsfml-graphics -lsfml-window -lsfml-system
