@@ -4,7 +4,7 @@ Vocab Snake lets you play "Snake" while practising vocabulary at the same time t
 
 
 
-Set-up:
+Set-up (works on Ubuntu):
 
 1. Install the SFML graphics library as described here:
 	https://www.sfml-dev.org/tutorials/2.5/start-linux.php
